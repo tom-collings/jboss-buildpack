@@ -15,5 +15,5 @@
 
 # Configuration for the JBoss container
 ---
-version: 7.1.+
+version: 7.1.1_Final
 repository_root: "{default.repository.root}/jboss-as"
