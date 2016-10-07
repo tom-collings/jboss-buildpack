@@ -52,8 +52,7 @@ describe JavaBuildpack::Container::Jboss do
     expect(configuration).to exist
 
     contents = configuration.read
-    expect(contents).to include('<socket-binding name="http" port="${http.port}"/>')
-    expect(contents).to include('<virtual-server name="default-host" enable-welcome-root="false">')
+    expect(contents).to include('<!-- <location name="/" handler="welcome-content"/> -->')
   end
 
   it 'creates a "ROOT.war.dodeploy" in the deployments directory',
@@ -84,8 +83,9 @@ describe JavaBuildpack::Container::Jboss do
   it 'returns command',
      app_fixture: 'container_tomcat' do
 
-    expect(component.release).to eq("#{java_home.as_env_var} JAVA_OPTS=\"test-opt-2 test-opt-1 -Dhttp.port=$PORT\" " \
-                                        'exec $PWD/.java-buildpack/jboss/bin/standalone.sh -b 0.0.0.0')
+    expect(component.release).to eq("#{java_home.as_env_var} JAVA_OPTS=\"test-opt-2 test-opt-1 " \
+                                        '-Djboss.http.port=$PORT" exec $PWD/.java-buildpack/jboss/bin/standalone.sh ' \
+                                        '-b 0.0.0.0')
   end
 
 end
