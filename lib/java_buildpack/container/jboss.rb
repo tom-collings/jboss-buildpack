@@ -31,6 +31,7 @@ module JavaBuildpack
         download_tar
         update_configuration
         copy_application
+        copy_additional_libraries
         create_dodeploy
       end
 
@@ -60,6 +61,11 @@ module JavaBuildpack
       def copy_application
         FileUtils.mkdir_p root
         @application.root.children.each { |child| FileUtils.cp_r child, root }
+      end
+
+      def copy_additional_libraries
+        web_inf_lib = root + 'WEB-INF/lib'
+        @droplet.additional_libraries.each { |additional_library| FileUtils.cp_r additional_library, web_inf_lib }
       end
 
       def create_dodeploy
