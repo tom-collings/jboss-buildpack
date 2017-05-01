@@ -83,8 +83,9 @@ describe JavaBuildpack::Container::Jboss do
      app_fixture: 'container_tomcat' do
 
     expect(component.release).to eq("#{java_home.as_env_var} JAVA_OPTS=\"test-opt-2 test-opt-1 " \
-                                        '-Djboss.http.port=$PORT" exec $PWD/.java-buildpack/jboss/bin/standalone.sh ' \
-                                        '-b 0.0.0.0')
+                                        '-Djboss.http.port=$PORT -Djava.net.preferIPv4Stack=true ' \
+                                        '-Djava.net.preferIPv4Addresses=true" exec ' \
+                                        '$PWD/.java-buildpack/jboss/bin/standalone.sh -b 0.0.0.0')
   end
 
 end

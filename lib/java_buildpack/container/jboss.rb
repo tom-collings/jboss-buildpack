@@ -36,7 +36,10 @@ module JavaBuildpack
 
       # (see JavaBuildpack::Component::BaseComponent#release)
       def release
-        @droplet.java_opts.add_system_property 'jboss.http.port', '$PORT'
+        @droplet.java_opts
+                .add_system_property('jboss.http.port', '$PORT')
+                .add_system_property('java.net.preferIPv4Stack', true)
+                .add_system_property('java.net.preferIPv4Addresses', true)
 
         [
           @droplet.java_home.as_env_var,
