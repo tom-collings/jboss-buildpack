@@ -57,6 +57,7 @@ module Package
       'dynatrace_one_agent'                 => 'Dynatrace OneAgent',
       'google_stackdriver_debugger'         => 'Google Stackdriver Debugger',
       'groovy'                              => 'Groovy',
+      'jboss'                               => 'Wildfly Application Server',
       'jre'                                 => 'OpenJDK JRE',
       'jrebel_agent'                        => 'JRebel Agent',
       'lifecycle_support'                   => 'Tomcat Lifecycle Support',
@@ -215,7 +216,7 @@ module Package
                .sort_by { |dependency| dependency['name'] }
                .map { |dependency| [dependency['name'], dependency['version']] }
 
-        puts Terminal::Table.new title: "Java Buildpack #{v['buildpack']}", rows: rows
+        puts Terminal::Table.new title: "JBoss Buildpack #{v['buildpack']}", rows: rows
       end
     end
 
