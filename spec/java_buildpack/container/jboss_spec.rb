@@ -82,7 +82,7 @@ describe JavaBuildpack::Container::Jboss do
   it 'returns command',
      app_fixture: 'container_tomcat' do
 
-    expect(component.release).to eq("#{java_home.as_env_var} exec " \
+    expect(component.release).to eq("test-var-2 test-var-1 JAVA_OPTS=$JAVA_OPTS #{java_home.as_env_var} exec " \
                                         '$PWD/.java-buildpack/jboss/bin/standalone.sh -b 0.0.0.0')
   end
 
