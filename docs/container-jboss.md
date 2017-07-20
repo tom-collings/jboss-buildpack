@@ -24,9 +24,9 @@ The container can be configured by modifying the [`config/jboss.yml`][] file in 
 | `repository_root` | The URL of the JBoss AS repository index ([details][repositories]).
 | `version` | The version of JBoss AS to use. Candidate versions can be found in [this listing][].
 
-[Configuration and Extension]: ../README.md#configuration-and-extension
 [`config/jboss.yml`]: ../config/jboss.yml
+[`SPRING_PROFILES_ACTIVE`]: http://docs.spring.io/spring/docs/4.0.0.RELEASE/javadoc-api/org/springframework/core/env/AbstractEnvironment.html#ACTIVE_PROFILES_PROPERTY_NAME
+[Configuration and Extension]: ../README.md#configuration-and-extension
 [repositories]: extending-repositories.md
 [Spring profiles]:http://blog.springsource.com/2011/02/14/spring-3-1-m1-introducing-profile/
-[`SPRING_PROFILES_ACTIVE`]: http://docs.spring.io/spring/docs/4.0.0.RELEASE/javadoc-api/org/springframework/core/env/AbstractEnvironment.html#ACTIVE_PROFILES_PROPERTY_NAME
 [version syntax]: extending-repositories.md#version-syntax-and-ordering
