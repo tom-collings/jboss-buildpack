@@ -18,7 +18,7 @@ require 'component_helper'
 require 'java_buildpack/container/jboss'
 
 describe JavaBuildpack::Container::Jboss do
-  include_context 'component_helper'
+  include_context 'with component help'
 
   it 'detects WEB-INF',
      app_fixture: 'container_tomcat' do
