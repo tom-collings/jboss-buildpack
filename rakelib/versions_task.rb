@@ -66,6 +66,7 @@ module Package
       'google_stackdriver_debugger'         => 'Google Stackdriver Debugger',
       'groovy'                              => 'Groovy',
       'introscope_agent'                    => 'CA Introscope APM Framework',
+      'jacoco_agent'                        => 'JaCoCo Agent',
       'jboss'                               => 'Wildfly Application Server',
       'jre'                                 => 'OpenJDK JRE',
       'jrebel_agent'                        => 'JRebel Agent',
