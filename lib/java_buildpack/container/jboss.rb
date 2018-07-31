@@ -80,11 +80,19 @@ module JavaBuildpack
       end
 
       def create_dodeploy
-        FileUtils.touch(webapps + 'ROOT.war.dodeploy')
+        if ear?
+          FileUtils.touch(webapps + 'ROOT.ear.dodeploy')
+        else
+          FileUtils.touch(webapps + 'ROOT.war.dodeploy')
+        end
       end
 
       def root
-        webapps + 'ROOT.war'
+        if ear?
+          webapps + 'ROOT.ear'
+        else
+          webapps + 'ROOT.war'
+        end
       end
 
       def update_configuration
