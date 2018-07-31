@@ -68,11 +68,10 @@ module JavaBuildpack
         @application.root.children.each { |child| FileUtils.cp_r child, root }
       end
 
-      # getting permission error here after adding ear code.  Did this ever work?
       def copy_additional_libraries
         if ear?
           meta_inf_lib = root + "/lib"
-          @droplet.additional_libraries.each { |additional_library| FileUtils.cp_r additional_library, meta_inf_lib }
+          #@droplet.additional_libraries.each { |additional_library| FileUtils.cp_r additional_library, meta_inf_lib }
         else
           web_inf_lib = root + 'WEB-INF/lib'
           @droplet.additional_libraries.each { |additional_library| FileUtils.cp_r additional_library, web_inf_lib }
