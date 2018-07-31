@@ -70,7 +70,6 @@ module JavaBuildpack
 
       def copy_additional_libraries
         if ear?
-          FileUtils.mkdir_p root + "/lib"
           meta_inf_lib = root + "/lib"
           @droplet.additional_libraries.each { |additional_library| FileUtils.cp_r additional_library, meta_inf_lib }
         else
