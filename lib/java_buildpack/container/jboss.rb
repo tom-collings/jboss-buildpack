@@ -69,8 +69,13 @@ module JavaBuildpack
       end
 
       def copy_additional_libraries
-        web_inf_lib = root + 'WEB-INF/lib'
-        @droplet.additional_libraries.each { |additional_library| FileUtils.cp_r additional_library, web_inf_lib }
+        if ear?
+          meta_inf_lib = root + "/lib"
+          @droplet.additional_libraries.each { |additional_library| FileUtils.cp_r additional_library, meta_inf_lib }
+        else
+          web_inf_lib = root + 'WEB-INF/lib'
+          @droplet.additional_libraries.each { |additional_library| FileUtils.cp_r additional_library, web_inf_lib }
+        end
       end
 
       def create_dodeploy
