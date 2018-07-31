@@ -32,7 +32,7 @@ module JavaBuildpack
         download_tar
         update_configuration
         copy_application
-        #copy_additional_libraries
+        copy_additional_libraries
         create_dodeploy
       end
 
