@@ -116,6 +116,8 @@ module JavaBuildpack
         (@application.root + 'META-INF/application.xml').exist?
       end
 
+      #comment for a different hash
+
     end
 
   end
